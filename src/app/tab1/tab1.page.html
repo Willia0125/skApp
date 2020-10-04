@@ -1,17 +1,52 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
+        <ion-button href="/signIN" class = "button button-small" color="medium" size="small" style="float:right">
+           Sign in
+        </ion-button>
+
   </ion-toolbar>
 </ion-header>
-
+<button class="btn" style="float:right">Login</button>
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+<ion-card>
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets\icon\plane.png" alt="Plane">
+    </ion-avatar>
+    <ion-label>
+      <h3>Scott's Kitchen</h3>
+      <p>Competition Style Flavors!</p>
+    </ion-label>
+  </ion-item>
+
+  <img src="assets\icon\IMG_0579.jpg" alt="BBQ">
+  <ion-card-header>
+    <ion-card-title>Kansas City BBQ</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    We're all about delicious, handcrafted meals here at Scott's Kitchen, and there are two ways you can enjoy our dishes.
+    If you swing by Hangar 29 in Kansas City.
+    You can treat yourself to a lunch complete with your favorite tacos and burritos.
+
+  </ion-card-content>
+
+  <ion-footer>
+    <ion-button href="/curbside" expand="block" shape="round" fill="outline">Curbside To Go</ion-button>
+    <ion-button href="/order" expand="block" shape="round" fill="outline">Order</ion-button>
+
+
+
+  </ion-footer>
+</ion-card>
+
+<app-explore-container name="Scott's Kitchen"></app-explore-container>
