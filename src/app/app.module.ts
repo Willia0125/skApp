@@ -9,12 +9,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HttpModule } from '@angular/http';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
-import { FirebaseService } from './../providers/firebase-service';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestorModule } from '@angular/fire/firestore';
+import { AngularFireFunctionsModule, FUNCTIONS_REGION } from '@angular/fire/firestore';
 
-const firebaseConfig = {
+/*const firebaseConfig = {
  apiKey: "AIzaSyAvBPtJ-3SAmwnCKJUYeqo-PYV_6Bzi5yQ",
  authDomain: "skapp-e7746.firebaseapp.com",
  databaseURL: "https://skapp-e7746.firebaseio.com",
@@ -23,7 +23,7 @@ const firebaseConfig = {
  messagingSenderId: "641313029762",
  appId: "1:641313029762:web:2899e0015713b9837cbe9b",
  measurementId: "G-20T6YCPLKG"
-};
+};*/
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,13 +34,17 @@ const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireModule.intialzeApp(firebaseConfig),*/
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
+    AngularFireFunctionsModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     //FirebaseService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: FUNCTIONS_REGION, useValue: 'us-central1'}
   ],
   bootstrap: [AppComponent]
 })
