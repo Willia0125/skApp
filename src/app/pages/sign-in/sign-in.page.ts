@@ -1,61 +1,59 @@
-//import { Component, OnInit } from '@angular/core';
-//remove if broken
-import { AngularFireFunctions } from '@angular/fire/functions';
-import { AngularFirestore};
-import { Component } from '@angular/core';
-import { ToastController } '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+//delete if broken
+//import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.page.html',
   styleUrls: ['./sign-in.page.scss'],
 })
-//export class SignInPage implements OnInit {}
-//------------Trying to add Email database------------------
-export class Homepage {
-  userdata = {
-    email: '',
-    first_name: '',
-  }
-};
-//delete if broken
+export class SignInPage implements OnInit {
+
+  /*
+    constructor(
+
+    ) {}
+
+    ngOnInit() {
+    }
+
+  }*/
+
+//  user: any = {};
 
   constructor(
-    //delete if broken
-    private toastCtrl: ToastController,
-    private db: AngularFirestore,
-    private functions: AngularFireFunctions
-  ) {}
-//delete if broken
-  subscribeTriggerd() {
-    this.db.collection('subs')
-    .add({ email: this.userdata.email, first_name: this.userdata.first_name })
-    .then(
-      res => {
-        this.showToast('You are now subscribed!');
-      },
-      err => {
-        console.log('Error: ', err);
-      }
-    );
+  //  private auth: AngularFireAuth,
+    //private router: Router,
+    //private afDB: AngularFireDatabase
+
+  ) { }
+
+  ngOnInit() {
   }
 
-  subscribeDirectly() {
-    const callbable = this.functions.httpsCallable('addSubscirber');
-    const obs = callbable({ email: this.userdata.email, first_name: this.userdata.first_name });
-    obs.subsribe(res => {
-      this.showToast(res.msg);
-    });
-  }
-//delete if broken
-  async showToast(msg) {
-    const toast = await this.toastCtrl.create({
-      message: msg,
-      duration: 2000
-    });
-    toast.present();
-  }
-/*  ngOnInit() {
-  }
+/*  register() {
 
-}*/
+    if (this.user.email && this.user.password) {
+      this.auth.auth.createUserWithEmailAndPassword(this.user.email.this.user.password).then((r) => {
+        console.log(r);
+
+        this.afDB.object('users/' + r.user.uid).set({
+          name: this.user.name,
+          email: this.user.email,
+          createdAt: Date.now(),
+        }).then(() => {
+          this.routher.navigationByUrl('/home');
+
+        });
+
+      }).catch(e => {
+        console.log(e);
+      })
+    }
+  }*/
+}

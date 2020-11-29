@@ -21,6 +21,14 @@ const routes: Routes = [
   {
     path: 'cart',
     loadChildren: () => import('./pages/cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'pickup',
+    loadChildren: () => import('./pages/pickup/pickup.module').then( m => m.PickupPageModule)
   }
 ];
 @NgModule({
