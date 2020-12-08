@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-card>
       <ion-item href="#">
-        <ion-icon name="arrow-back" slot="start"></ion-icon>
+        <ion-icon name="home" slot="start"></ion-icon>
         <ion-label>Cart</ion-label>
       </ion-item>
     </ion-card>
@@ -22,17 +22,50 @@
           <ion-card-title>Order Options</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <menu>
-            Menu: Order
-            Handoff: Curbside
-            Location: 11920 N Ambassador Dr, Kansas City, MO 64153
-          </menu>
+          <ion-item>
+            <ion-icon></ion-icon>
+            <ion-label>Order handoff: Curbside</ion-label>
+          </ion-item>
         </ion-card-content>
       </ion-card>
       <ion-card>
         <ion-item>
           <ion-icon name="cart" slot="start"></ion-icon>
-          <ion-label>Burrito Bowl ....................... 1</ion-label>
+          <ion-label>Brisket Burrito Bowl</ion-label>
+          <ion-note slot="end">1</ion-note>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-list lines="inset">
+          <ion-item>
+            <ion-label>Sub Totoal</ion-label>
+            <ion-note slot="end">$9.99</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Tax(10%)</ion-label>
+            <ion-note slot="end">$0.99</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Total</ion-label>
+            <ion-note slot="end">$10.98</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-icon name="logo-paypal" slot="start"></ion-icon>
+          <ion-label>Paypal</ion-label>
+          <ion-checkbox slot="end" ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="cash" slot="start"></ion-icon>
+            <ion-checkbox slot="end"></ion-checkbox>
+          <ion-label>Cash</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="card" slot="start"></ion-icon>
+            <ion-checkbox slot="end"></ion-checkbox>
+          <ion-label>Credit Card</ion-label>
         </ion-item>
       </ion-card>
     </ion-content>
@@ -40,7 +73,7 @@
 
 </ion-content>
 <ion-footer>
-  <ion-button href="/checkout" expand="block" shape="round" fill="solid">Checkout</ion-button>
+  <ion-button href="/checkout" expand="block" shape="round" fill="outline">Checkout</ion-button>
   <!--<ion-button (click)="crubside()">Curbside To Go</ion-button>-->
 
 

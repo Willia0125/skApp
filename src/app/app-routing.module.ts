@@ -29,6 +29,14 @@ const routes: Routes = [
   {
     path: 'pickup',
     loadChildren: () => import('./pages/pickup/pickup.module').then( m => m.PickupPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'create-account',
+    loadChildren: () => import('./pages/create-account/create-account.module').then( m => m.CreateAccountPageModule)
   }
 ];
 @NgModule({

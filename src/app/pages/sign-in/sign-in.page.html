@@ -1,8 +1,8 @@
-<ion-header [translucent]="true">
+<!--<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-card>
-      <ion-item href="#">
-        <ion-icon name="arrow-back" slot="start"></ion-icon>
+      <ion-item href="/tabs">
+        <ion-icon name="home" slot="start"></ion-icon>
         <ion-label>Sign In</ion-label>
       </ion-item>
     </ion-card>
@@ -15,32 +15,112 @@
   </div>
   <div class="ion-padding">
 
-      <ion-item>
-        <ion-label position="stacked" color="primary">Username</ion-label>
-        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-          required>
-        </ion-input>
-      </ion-item>
-      <ion-text color="danger">
-        <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
-          Username is Required
-        </p>
-      </ion-text>
+    <ion-item>
+      <ion-label position="stacked" color="primary">Username</ion-label>
+      <ion-input  name="username" type="text"  spellcheck="false" autocapitalize="off" required>
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger">
+      <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
+        Username is Required
+      </p>
+    </ion-text>
 
-      <ion-item>
-        <ion-label position="stacked" color="primary">Password</ion-label>
-        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
-        </ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label position="stacked" color="primary">Password</ion-label>
+      <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+      </ion-input>
+    </ion-item>
 
-      <ion-text color="danger">
-        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
-          Password is Required
-        </p>
-      </ion-text>
-      <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Login</ion-button>
-      <ion-button (click)="onSignup()" color="light" expand="block">Signup</ion-button>
+    <ion-text color="danger">
+      <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+        Password is Required
+      </p>
+    </ion-text>
+    <ion-button href="/login" expand="block" shape="round" fill="outline">Login</ion-button>
+    <ion-button href="/create-account" expand="block" shape="round" fill="outline">Create Account</ion-button>
+  </div>
 
+</ion-content>-->
+
+<!--delete if broken 12/6
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form class="form" [formGroup]="validations_form" (ngSubmit)="loginUser(validations_form.value)">
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
     </div>
 
+    <ion-item>
+      <ion-label position="floating" color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message"
+          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-button class="submit-btn" type="submit" [disabled]="!validations_form.valid">Log In</ion-button>
+
+    <label class="error-message">{{errorMessage}}</label>
+  </form>
+  <p class="go-to-register">
+    No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
+  </p>
+</ion-content>-->
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-card>
+      <ion-item href="/tabs">
+        <ion-icon name="home" slot="start"></ion-icon>
+        <ion-label>Sign In</ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div class="login-logo">
+    <img src="assets\icon\plane.png" alt="Scott's Logo">
+  </div>
+    <form>
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" required></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button href="/login" expand="block" fill="solid">Sign In</ion-button>
+          <ion-button href="/create-account" color="danger" expand="block" fill="solid">Create Account</ion-button>
+
+        </ion-col>
+      </ion-row>
+    </form>
 </ion-content>
